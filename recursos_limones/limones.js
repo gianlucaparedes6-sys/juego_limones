@@ -19,9 +19,10 @@ let intervalo;
 function iniciar() {
     dibujarSuelo();
     dibujarPersonaje();
-    intervalo = setInterval(bajarLimon, intervaloCaida);
     aparecerLimon();
+    intervalo = setInterval(bajarLimon, intervaloCaida);
 }
+
 function dibujarSuelo() {
     ctx.fillStyle = "green";
     ctx.fillRect(0, canvas.height - ALTURA_SUELO, canvas.width, ALTURA_SUELO);
@@ -70,8 +71,7 @@ function detectarAtrapado() {
         mostrarEnSpan("txtPuntaje", puntaje);
         if (puntaje == 3) {
             intervaloCaida = intervaloCaida - 50;
-           
-        }
+                   }
         if (puntaje == 6) {
             intervaloCaida = intervaloCaida - 50;
         } 
@@ -100,3 +100,12 @@ function aparecerLimon() {
     actualizarPantalla();
 }
 
+function reiniciar() {
+        limpiarCanvas();
+       iniciar();
+    puntaje = 0;
+    vidas = 3;
+    mostrarEnSpan("txtPuntaje", puntaje);
+    mostrarEnSpan("txtVidas", vidas);
+    clearInterval(intervalo);
+}
