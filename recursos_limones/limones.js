@@ -9,7 +9,7 @@ let limonX = canvas.width / 2 ;
 let limonY = 0;
 const ANCHO_LIMON = 20;
 const ALTURA_LIMON = 20;
-let intervaloCaida = 500;
+let intervaloCaida = 200;
 let puntaje = 0;
 let vidas = 3;
 
@@ -57,16 +57,26 @@ function bajarLimon() {
     limonY = limonY + 10;
     actualizarPantalla();
     dibujarLimon();
-    detectarColision();
+    detectarAtrapado();
     detectarSuelo();
 }
-function detectarColision() {
+function detectarAtrapado() {
     if (limonX + ANCHO_LIMON > personajeX && limonX < personajeX + ANCHO_PERSONAJE && limonY + ALTURA_LIMON > personajeY && limonY < personajeY + ALTURA_PERSONAJE && personajeX) {
-       //alert("ATRAPADO");
+       
          aparecerLimon();
         puntaje = puntaje + 1;
         mostrarEnSpan("txtPuntaje", puntaje);
-    } 
+        if (puntaje == 3) {
+            intervaloCaida = intervaloCaida - 50;
+           
+        }
+        if (puntaje == 6) {
+            intervaloCaida = intervaloCaida - 50;
+        } 
+            if (puntaje == 10) {
+            alert("GANASTE EL JUEGO FELICIDADES AHORA PUEDES HACER LA LIMONADA");
+        }
+    }
     
 }
 function detectarSuelo() {
