@@ -12,12 +12,14 @@ const ALTURA_LIMON = 20;
 let intervaloCaida = 200;
 let puntaje = 0;
 let vidas = 3;
+let intervalo;
+
 
 
 function iniciar() {
     dibujarSuelo();
     dibujarPersonaje();
-    setInterval(bajarLimon, intervaloCaida);
+    intervalo = setInterval(bajarLimon, intervaloCaida);
     aparecerLimon();
 }
 function dibujarSuelo() {
@@ -75,6 +77,7 @@ function detectarAtrapado() {
         } 
             if (puntaje == 10) {
             alert("GANASTE EL JUEGO FELICIDADES AHORA PUEDES HACER LA LIMONADA");
+            clearInterval(intervalo);
         }
     }
     
@@ -86,6 +89,7 @@ function detectarSuelo() {
         mostrarEnSpan("txtVidas", vidas);
             if (vidas == 0) {
                 alert("GAME OVER");
+                clearInterval(intervalo);
             }
     }
 }
