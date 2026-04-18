@@ -28,7 +28,7 @@ function dibujarSuelo() {
     ctx.fillRect(0, canvas.height - ALTURA_SUELO, canvas.width, ALTURA_SUELO);
 }
 function dibujarPersonaje() {
-    ctx.fillStyle = "red";
+    ctx.fillStyle = "blue";
     ctx.fillRect(personajeX , personajeY , ANCHO_PERSONAJE, ALTURA_PERSONAJE);
 }
 function moverIzquierda() {
@@ -88,7 +88,7 @@ function detectarSuelo() {
         vidas=vidas - 1;
         mostrarEnSpan("txtVidas", vidas);
             if (vidas == 0) {
-                alert("GAME OVER");
+                alert("Juego Finalizado");
                 clearInterval(intervalo);
             }
     }
