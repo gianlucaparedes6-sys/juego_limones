@@ -1,6 +1,10 @@
 body {
   font-family: 'Segoe UI', Tahoma, sans-serif;
-  background: linear-gradient(135deg, #0f172a, #1e293b);
+  background: linear-gradient(rgba(15,23,42,0.85), rgba(30,41,59,0.9)),
+              url("limones.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: white;
   text-align: center;
   margin: 0;
@@ -98,4 +102,11 @@ canvas {
   margin-top: 20px;
   font-size: 12px;
   color: #64748b;
+}
+.contenedor {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
 }
